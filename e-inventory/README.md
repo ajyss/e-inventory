@@ -147,18 +147,41 @@ http://localhost:5500
 
 ---
 
-## 📸 Screenshot & Dokumentasi Visual
+## 📸 Screenshot & Dokumentasi Laporan
 
-| Fitur / Halaman | Deskripsi | File Screenshot | Keterangan |
-|-----------------|-----------|-----------------|------------|
-| Login | Form autentikasi pengguna | `docs/images/image.png` | Tampilkan form email/password |
-| Dashboard | Ringkasan statistik utama | `docs/images/3.png` | Tampilkan card statistik dan menu |
-| Produk | Daftar produk, search, filter | `docs/images/4.png` | Tampilkan tabel atau grid produk |
-| Detail Produk | Tampilan detail + stok | `docs/images/5.png` | Tampilkan informasi barang dan stok |
-| Supplier | Daftar dan manajemen supplier | `docs/images/6.png` | Tampilkan layar supplier |
-| Transaksi | Input penerimaan/pengeluaran | `docs/images/image1.png` | Tampilkan form transaksional |
+### 1. Form Login / Autentikasi
+![Login](docs/images/image.png)
+**Keterangan:** Form autentikasi pengguna dengan field email/password
 
-> Screenshot sudah disiapkan di folder `docs/images/`. Silakan tambahkan lebih banyak screenshot sesuai kebutuhan.
+---
+
+### 2. Dashboard Utama
+![Dashboard](docs/images/3.png)
+**Keterangan:** Ringkasan statistik inventaris dan menu navigasi utama
+
+---
+
+### 3. Halaman Daftar Produk
+![Produk](docs/images/4.png)
+**Keterangan:** Daftar produk dengan fitur search, filter, dan pagination
+
+---
+
+### 4. Detail Produk & Stok
+![Detail Produk](docs/images/5.png)
+**Keterangan:** Tampilan detail barang dengan informasi stok dan riwayat
+
+---
+
+### 5. Manajemen Supplier
+![Supplier](docs/images/6.png)
+**Keterangan:** Daftar supplier dan vendor dengan opsi tambah/edit/hapus
+
+---
+
+### 6. Form Transaksi
+![Transaksi](docs/images/image1.png)
+**Keterangan:** Form input penerimaan dan pengeluaran barang
 
 ---
 
