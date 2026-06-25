@@ -1,4 +1,4 @@
-# ?? E-Inventory � Sistem Manajemen Inventaris Barang
+# 📦 E-Inventory — Sistem Manajemen Inventaris Barang
 
 **Nama:** Aziz Tri Ramadhan  
 **NIM:** 312410380  
@@ -8,57 +8,57 @@
 
 ---
 
-## ??? Arsitektur Sistem
+## 🏗️ Arsitektur Sistem
 
 ```
-Browser (Vue SPA)  ?--Axios/JSON--?  CI4 API Server  ?--?  MySQL DB
+Browser (Vue SPA)  ←──Axios/JSON──→  CI4 API Server  ←──→  MySQL DB
    Port 5500                              Port 8080
 ```
 
-## ?? Struktur Repositori
+## 📁 Struktur Repositori
 
 ```
 e-inventory/
-+-- backend-api/                  ? Semua file CI4 (copy dari folder ci4/)
-�   +-- app/
-�       +-- Config/
-�       �   +-- Filters.php       ? ? CORS global + AuthFilter per-route
-�       �   +-- Routes.php        ? Semua API endpoint
-�       +-- Controllers/
-�       �   +-- AuthController.php    ? POST /api/auth/login
-�       �   +-- BarangController.php  ? CRUD RESTful Resource
-�       �   +-- KategoriController.php
-�       �   +-- SupplierController.php
-�       �   +-- StatistikController.php
-�       +-- Models/
-�       �   +-- BarangModel.php       ? JOIN query + validasi
-�       �   +-- KategoriModel.php
-�       �   +-- SupplierModel.php
-�       �   +-- UserModel.php
-�       +-- Filters/
-�       �   +-- AuthFilter.php        ? ? Validasi Bearer Token
-�       �   +-- CorsFilter.php        ? ? CORS headers
-�       +-- Database/
-�           +-- Migrations/
-�           �   +-- ..._CreateInventarisTables.php
-�           +-- Seeds/
-�               +-- InventarisSeeder.php
-�
-+-- frontend-spa/                 ? Frontend Vue SPA
-    +-- index.html                ? ? Entry point, CDN imports
-    +-- app.js                    ? ? Router + Axios Interceptors
-    +-- components/
-        +-- Home.js               ? Landing page publik
-        +-- Login.js              ? Form autentikasi
-        +-- Dashboard.js          ? Ringkasan statistik
-        +-- Barang.js             ? CRUD tabel barang + modal
+├── backend-api/                  ← Semua file CI4 (copy dari folder ci4/)
+│   └── app/
+│       ├── Config/
+│       │   ├── Filters.php       ← ⭐ CORS global + AuthFilter per-route
+│       │   └── Routes.php        ← Semua API endpoint
+│       ├── Controllers/
+│       │   ├── AuthController.php    ← POST /api/auth/login
+│       │   ├── BarangController.php  ← CRUD RESTful Resource
+│       │   ├── KategoriController.php
+│       │   ├── SupplierController.php
+│       │   └── StatistikController.php
+│       ├── Models/
+│       │   ├── BarangModel.php       ← JOIN query + validasi
+│       │   ├── KategoriModel.php
+│       │   ├── SupplierModel.php
+│       │   └── UserModel.php
+│       ├── Filters/
+│       │   ├── AuthFilter.php        ← ⭐ Validasi Bearer Token
+│       │   └── CorsFilter.php        ← ⭐ CORS headers
+│       └── Database/
+│           ├── Migrations/
+│           │   └── ..._CreateInventarisTables.php
+│           └── Seeds/
+│               └── InventarisSeeder.php
+│
+└── frontend-spa/                 ← Frontend Vue SPA
+    ├── index.html                ← ⭐ Entry point, CDN imports
+    ├── app.js                    ← ⭐ Router + Axios Interceptors
+    └── components/
+        ├── Home.js               ← Landing page publik
+        ├── Login.js              ← Form autentikasi
+        ├── Dashboard.js          ← Ringkasan statistik
+        └── Barang.js             ← CRUD tabel barang + modal
 ```
 
 ---
 
-## ?? Panduan Setup & Instalasi
+## 🚀 Panduan Setup & Instalasi
 
-### LANGKAH 1 � Siapkan Backend CI4
+### LANGKAH 1 — Siapkan Backend CI4
 
 **1a. Copy file proyek**
 ```
@@ -70,9 +70,9 @@ menimpa file yang sudah ada (terutama Config/Filters.php & Routes.php)
 ```env
 CI_ENVIRONMENT = development
 database.default.hostname = localhost
-database.default.database = e_inventory    ? Buat database baru ini
+database.default.database = e_inventory    ← Buat database baru ini
 database.default.username = root
-database.default.password = 
+database.default.password =
 database.default.DBDriver = MySQLi
 ```
 
@@ -93,11 +93,11 @@ php spark db:seed InventarisSeeder
 php spark serve --port=8080
 ```
 
-? Test: buka http://localhost:8080 ? harusnya muncul JSON info API
+✅ Test: buka http://localhost:8080 → harusnya muncul JSON info API
 
 ---
 
-### LANGKAH 2 � Jalankan Frontend SPA
+### LANGKAH 2 — Jalankan Frontend SPA
 
 **2a. Sesuaikan Base URL di `app.js`**
 ```javascript
@@ -122,7 +122,7 @@ http://localhost:5500
 
 ---
 
-## ?? Kredensial Default
+## 🔐 Kredensial Default
 
 | Field    | Value      |
 |----------|------------|
@@ -131,22 +131,22 @@ http://localhost:5500
 
 ---
 
-## ?? Daftar API Endpoint
+## 📡 Daftar API Endpoint
 
 | Method | Endpoint             | Auth   | Keterangan               |
 |--------|----------------------|--------|--------------------------|
 | GET    | `/api/statistik`     | Publik | Statistik inventaris     |
-| POST   | `/api/auth/login`    | Publik | Login ? dapat token      |
+| POST   | `/api/auth/login`    | Publik | Login → dapat token      |
 | GET    | `/api/barang`        | Publik | Daftar semua barang      |
-| POST   | `/api/barang`        | ?? Token | Tambah barang baru     |
+| POST   | `/api/barang`        | 🔒 Token | Tambah barang baru     |
 | GET    | `/api/barang/{id}`   | Publik | Detail 1 barang          |
-| PUT    | `/api/barang/{id}`   | ?? Token | Update barang            |
-| DELETE | `/api/barang/{id}`   | ?? Token | Hapus barang             |
+| PUT    | `/api/barang/{id}`   | 🔒 Token | Update barang            |
+| DELETE | `/api/barang/{id}`   | 🔒 Token | Hapus barang             |
 | GET    | `/api/kategori`      | Publik | Daftar kategori          |
 | GET    | `/api/supplier`      | Publik | Daftar supplier          |
-```
 
 ---
+
 ## 📸 Screenshot & Dokumentasi Visual
 
 | Fitur / Halaman | Deskripsi | File Screenshot | Keterangan |
@@ -161,24 +161,25 @@ http://localhost:5500
 > Screenshot sudah disiapkan di folder `docs/images/`. Silakan tambahkan lebih banyak screenshot sesuai kebutuhan.
 
 ---
-## ?? Penjelasan Konsep Kunci (untuk Presentasi)
+
+## 🎯 Penjelasan Konsep Kunci (untuk Presentasi)
 
 ### 1. AuthFilter (Bearer Token)
 File: `app/Filters/AuthFilter.php`
 
 ```
-Request masuk ? Baca header "Authorization: Bearer <token>"
-             ? Decode Base64 ? Cek expiry (24 jam)
-             ? Cari user di DB ? Jika valid: lanjut ke Controller
-                               ? Jika tidak: balas JSON 401
+Request masuk → Baca header "Authorization: Bearer <token>"
+             → Decode Base64 → Cek expiry (24 jam)
+             → Cari user di DB → Jika valid: lanjut ke Controller
+                               → Jika tidak: balas JSON 401
 ```
 
 ### 2. CorsFilter (CORS)
 File: `app/Filters/CorsFilter.php`
 
 ```
-Browser dari port 5500 ? Kirim request ke port 8080
-Browser block? ? Tidak! Karena CorsFilter menambahkan header:
+Browser dari port 5500 → Kirim request ke port 8080
+Browser block? → Tidak! Karena CorsFilter menambahkan header:
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
 ```
@@ -187,7 +188,7 @@ Browser block? ? Tidak! Karena CorsFilter menambahkan header:
 File: `frontend-spa/app.js`
 
 ```javascript
-// Setiap request ? otomatis tambah header:
+// Setiap request → otomatis tambah header:
 config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`
 ```
 
@@ -195,8 +196,8 @@ config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`
 File: `frontend-spa/app.js`
 
 ```javascript
-// Setiap response ? jika status 401:
-// ? Hapus token ? Alert "Sesi Habis" ? Redirect ke /login
+// Setiap response → jika status 401:
+// → Hapus token → Alert "Sesi Habis" → Redirect ke /login
 ```
 
 ### 5. Navigation Guard (Vue Router)
@@ -214,7 +215,7 @@ router.beforeEach((to, from, next) => {
 
 ---
 
-## ?? Tech Stack
+## �️ Tech Stack
 
 | Komponen  | Teknologi              | Versi  |
 |-----------|------------------------|--------|
